@@ -20,7 +20,27 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module decoder(
+module decoder (
+    input [1:0] sel,       // 2-bit input selector (00 - Add, 01 - Sub, 10 - Mul)
+    output reg enable_add, // Enable for Adder
+    output reg enable_sub, // Enable for Subtractor
+    output reg enable_mul  // Enable for Multiplier
+);
+    always @(*) begin
+        // Default to disable all operations
+        enable_add = 1'b0;
+        enable_sub = 1'b0;
+        enable_mul = 1'b0;
 
-    );
+        case(sel)
+            2'b00: enable_add = 1'b1;  // Enable Adder
+            2'b01: enable_sub = 1'b1;  // Enable Subtractor
+            2'b10: enable_mul = 1'b1;  // Enable Multiplier
+            default: begin
+                enable_add = 1'b0;     // Disable all
+                enable_sub = 1'b0;
+                enable_mul = 1'b0;
+            end
+        endcase
+    end
 endmodule
