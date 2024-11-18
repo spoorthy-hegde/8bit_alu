@@ -235,15 +235,15 @@ module alu_8bit(
     
     always @(*) begin
         case (sel)
-            3'b000: begin
+            2'b00: begin
                 result = sum;  
                 carry = cout;
             end
-            3'b001: begin
+            2'b01: begin
                result = diff;  
                carry = cout;
             end
-            3'b010: begin 
+            2'b10: begin 
             result = product; 
             carry = cout;
             end 
