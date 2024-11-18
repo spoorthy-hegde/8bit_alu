@@ -18,7 +18,7 @@
 // Additional Comments:
 // 
 ///////////////////////////////////////////////////////////////////////////////
-module alu_8bit(
+module alu_8bit(  
     input [7:0] a, b,  
     input cin,   
     input [1:0] sel,
